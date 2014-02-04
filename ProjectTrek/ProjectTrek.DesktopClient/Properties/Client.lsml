@@ -39,6 +39,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowSearchTimeCategories"
       Target="!module/Methods[ShowSearchTimeCategories]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowCreateNewTimeCategory"
+      Target="!module/Methods[ShowCreateNewTimeCategory]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -51,6 +54,9 @@
       <ApplicationNavigationLink
         Name="SearchTimeCategories"
         Command="!module/Commands[ScreenCommandShowSearchTimeCategories]" />
+      <ApplicationNavigationLink
+        Name="CreateNewTimeCategory"
+        Command="!module/Commands[ScreenCommandShowCreateNewTimeCategory]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

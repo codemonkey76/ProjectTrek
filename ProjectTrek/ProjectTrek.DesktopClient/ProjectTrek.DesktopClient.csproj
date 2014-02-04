@@ -227,6 +227,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Screens\CreateNewTimeCategory.lsml.cs">
+      <DependentUpon>CreateNewTimeCategory.lsml</DependentUpon>
+    </Compile>
     <Compile Include="Screens\TimeCategoryDetail.lsml.cs">
       <DependentUpon>TimeCategoryDetail.lsml</DependentUpon>
     </Compile>
@@ -242,6 +245,7 @@
     <LightSwitchModel Include="Properties\Proxies.lsml" />
     <LightSwitchModel Include="Screens\SearchTimeCategories.lsml" />
     <LightSwitchModel Include="Screens\TimeCategoryDetail.lsml" />
+    <LightSwitchModel Include="Screens\CreateNewTimeCategory.lsml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
