@@ -35,13 +35,22 @@
         Target="ServiceInterface:LightSwitchServiceApplicationGroup" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
+  <Application.Commands>
+    <ApplicationCommand
+      Name="ScreenCommandShowSearchTimeCategories"
+      Target="!module/Methods[ShowSearchTimeCategories]" />
+  </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
-      Name="Tasks">
+      Name="Tasks"
+      DefaultItem="!module/NavigationItems[Tasks]/Children[SearchTimeCategories]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Tasks" />
       </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="SearchTimeCategories"
+        Command="!module/Commands[ScreenCommandShowSearchTimeCategories]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">
