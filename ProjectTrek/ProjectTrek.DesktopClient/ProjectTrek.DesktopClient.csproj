@@ -236,10 +236,10 @@
     <None Include="Properties\OutOfBrowserSettings.xml" />
     <ClientResource Include="Properties\Config.xml" />
     <LightSwitchModel Include="Properties\Proxies.lsml" />
+    <LightSwitchModel Include="Screens\EditableTimeCategoriesGrid.lsml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\ApplicationData\" />
-    <Folder Include="Screens\" />
   </ItemGroup>
   <ItemGroup>
     <_ClientBuildFile Include="default.htm">

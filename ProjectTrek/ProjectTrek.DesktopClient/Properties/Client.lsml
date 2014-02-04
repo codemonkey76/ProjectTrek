@@ -35,13 +35,22 @@
         Target="ServiceInterface:LightSwitchServiceApplicationGroup" />
     </GlobalAttributeGroup.Attributes>
   </GlobalAttributeGroup>
+  <Application.Commands>
+    <ApplicationCommand
+      Name="ScreenCommandShowEditableTimeCategoriesGrid"
+      Target="!module/Methods[ShowEditableTimeCategoriesGrid]" />
+  </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
-      Name="Tasks">
+      Name="Tasks"
+      DefaultItem="!module/NavigationItems[Tasks]/Children[EditableTimeCategoriesGrid]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Tasks" />
       </ApplicationNavigationGroup.Attributes>
+      <ApplicationNavigationLink
+        Name="EditableTimeCategoriesGrid"
+        Command="!module/Commands[ScreenCommandShowEditableTimeCategoriesGrid]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">
