@@ -24,7 +24,7 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
-        Name="DisplayName"
+        Name="Category"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
@@ -47,6 +47,14 @@
         <EntityProperty.Attributes>
           <Required />
           <NotSearchable />
+          <DisplayName
+            Value="Active?" />
+          <SupportedValue
+            DisplayName="Yes"
+            Value="True" />
+          <SupportedValue
+            DisplayName="No"
+            Value="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty

@@ -9,6 +9,8 @@
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
+      <DisplayName
+        Value="Maintain Time Categories" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -22,6 +24,10 @@
             Name="grid"
             Kind="Collection"
             DataType="CollectionView$TimeCategory">
+            <ContentItem.Attributes>
+              <DisplayName
+                Value="List of Time Categories" />
+            </ContentItem.Attributes>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
@@ -47,7 +53,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="TimeCategory/Properties[DisplayName]" />
+                        Member="TimeCategory/Properties[Category]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
