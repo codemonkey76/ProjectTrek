@@ -49,7 +49,7 @@
   <Application.NavigationItems>
     <ApplicationNavigationGroup
       Name="Tasks"
-      DefaultItem="!module/NavigationItems[Tasks]/Children[EditableTimeCategoriesGrid]">
+      DefaultItem="!module/NavigationItems[Tasks]/Children[ProjectsListDetail]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Tasks" />
