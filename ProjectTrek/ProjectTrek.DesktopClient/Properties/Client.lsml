@@ -28,6 +28,9 @@
     <EntityContainerGroupProperty
       Name="ApplicationData"
       EntityContainer="ApplicationData" />
+    <EntityContainerGroupProperty
+      Name="ConsulArtCRMData"
+      EntityContainer="ConsulArtCRMData" />
   </EntityContainerGroup>
   <GlobalAttributeGroup>
     <GlobalAttributeGroup.Attributes>

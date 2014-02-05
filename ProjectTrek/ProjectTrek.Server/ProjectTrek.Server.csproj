@@ -213,6 +213,10 @@
     <LightSwitchModel Include="DataSources\ApplicationData\ActiveProjects.lsml">
       <DependentUpon>Projects.lsml</DependentUpon>
     </LightSwitchModel>
+    <LightSwitchModel Include="DataSources\ConsulArtCRMData\USERs.lsml" />
+    <LightSwitchModel Include="DataSources\ConsulArtCRMData\USER_CATEGORies.lsml" />
+    <LightSwitchModel Include="Properties\DataSources\ConsulArtCRMData.lsml" />
+    <LightSwitchModel Include="DataSources\ConsulArtCRMData\COMPANies.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

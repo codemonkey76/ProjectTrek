@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceApplication
+  Name="LightSwitchServiceApplication" xmlns="http://schemas.microsoft.com/LightSwitch/2010/xaml/model">
+  <ServiceApplication.Attributes>
+    <Partial />
+  </ServiceApplication.Attributes>
+  <EntityType
+    Name="USER">
+    <EntityType.Methods>
+      <EntityMethod
+        Name="Delete">
+        <EntityMethod.Attributes>
+          <Generated />
+        </EntityMethod.Attributes>
+      </EntityMethod>
+    </EntityType.Methods>
+    <EntityType.Properties>
+      <KeyProperty
+        Name="cACCOUNTID"
+        PropertyType=":String">
+        <KeyProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="10" />
+        </KeyProperty.Attributes>
+      </KeyProperty>
+      <EntityProperty
+        Name="cLOGINNAME"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="40" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="cDOMAINNAME"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="40" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="cFIRSTNAME"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="40" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="cMIDDLENAME"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="10" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="cLASTNAME"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="40" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="dCREATED"
+        PropertyType=":DateTime">
+        <EntityProperty.Attributes>
+          <Required />
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="dMODIFIED"
+        PropertyType=":DateTime?">
+        <EntityProperty.Attributes>
+          <DateTimeConstraint
+            Precision="3"
+            PreserveSeconds="True" />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="fLOCKEDOUT"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="cFULLLOGINNAME"
+        IsReadOnly="True"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="81" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="cEMAILADDRESS"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="128" />
+          <AnsiConstraint />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="USER_CATEGORY"
+        Association="FK_USER_USER_CATEGORY"
+        FromEnd="USER"
+        ToEnd="USER_CATEGORY" />
+    </EntityType.Properties>
+  </EntityType>
+  <EntityContainer
+    Name="ConsulArtCRMData">
+    <EntityContainer.Attributes>
+      <Partial />
+    </EntityContainer.Attributes>
+    <EntitySet
+      Name="USERs"
+      CanDelete="True"
+      CanInsert="True"
+      CanUpdate="True"
+      EntityType="USER" />
+    <QueryOperation
+      Name="USERs_Single"
+      ReturnType="USER">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s)." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="cACCOUNTID" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="cACCOUNTID" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="USERs" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="cACCOUNTID"
+        ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'cACCOUNTID' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+    <QueryOperation
+      Name="USERs_SingleOrDefault"
+      ReturnType="USER">
+      <QueryOperation.Attributes>
+        <Generated />
+        <Description
+          Value="Returns the entity whose identity is specified by the parameter(s) or null if no such entity exists." />
+      </QueryOperation.Attributes>
+      <QueryOperation.FilterExpression>
+        <QueryFilterExpressionTree>
+          <BinaryExpression
+            NodeType="Equal">
+            <BinaryExpression.Left>
+              <ChainExpression>
+                <MemberExpression
+                  Member="cACCOUNTID" />
+              </ChainExpression>
+            </BinaryExpression.Left>
+            <BinaryExpression.Right>
+              <ParameterExpression
+                Parameter="cACCOUNTID" />
+            </BinaryExpression.Right>
+          </BinaryExpression>
+        </QueryFilterExpressionTree>
+      </QueryOperation.FilterExpression>
+      <QueryOperation.Source>
+        <QuerySourceExpressionTree>
+          <MemberExpression
+            Member="USERs" />
+        </QuerySourceExpressionTree>
+      </QueryOperation.Source>
+      <QueryOperationParameter
+        Name="cACCOUNTID"
+        ParameterType=":String?">
+        <QueryOperationParameter.Attributes>
+          <Description
+            Value="The value of the 'cACCOUNTID' key property of the entity to retrieve." />
+        </QueryOperationParameter.Attributes>
+      </QueryOperationParameter>
+    </QueryOperation>
+  </EntityContainer>
+  <DataService
+    Name="ConsulArtCRMDataDataService">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="USERs">
+      <EntitySetMapping.Attributes>
+        <SsdlEntitySet
+          Schema="dbo"
+          Table="USER" />
+        <SsdlProperty
+          MaxLength="10"
+          Name="cACCOUNTID"
+          Nullable="False"
+          Type="nvarchar"
+          Property="USER/Properties[cACCOUNTID]" />
+        <SsdlProperty
+          MaxLength="40"
+          Name="cLOGINNAME"
+          Nullable="False"
+          Type="nvarchar"
+          Property="USER/Properties[cLOGINNAME]" />
+        <SsdlProperty
+          MaxLength="40"
+          Name="cDOMAINNAME"
+          Nullable="False"
+          Type="nvarchar"
+          Property="USER/Properties[cDOMAINNAME]" />
+        <SsdlProperty
+          MaxLength="40"
+          Name="cFIRSTNAME"
+          Nullable="False"
+          Type="nvarchar"
+          Property="USER/Properties[cFIRSTNAME]" />
+        <SsdlProperty
+          MaxLength="10"
+          Name="cMIDDLENAME"
+          Nullable="True"
+          Type="nvarchar"
+          Property="USER/Properties[cMIDDLENAME]" />
+        <SsdlProperty
+          MaxLength="40"
+          Name="cLASTNAME"
+          Nullable="False"
+          Type="nvarchar"
+          Property="USER/Properties[cLASTNAME]" />
+        <SsdlProperty
+          Name="dCREATED"
+          Nullable="False"
+          Type="datetime"
+          Property="USER/Properties[dCREATED]" />
+        <SsdlProperty
+          Name="dMODIFIED"
+          Nullable="True"
+          Type="datetime"
+          Property="USER/Properties[dMODIFIED]" />
+        <SsdlProperty
+          Name="fLOCKEDOUT"
+          Nullable="False"
+          Type="int"
+          Property="USER/Properties[fLOCKEDOUT]" />
+        <SsdlProperty
+          MaxLength="81"
+          Name="cFULLLOGINNAME"
+          Nullable="False"
+          StoreGeneratedPattern="Computed"
+          Type="nvarchar"
+          Property="USER/Properties[cFULLLOGINNAME]" />
+        <SsdlProperty
+          MaxLength="128"
+          Name="cEMAILADDRESS"
+          Nullable="False"
+          Type="varchar"
+          Property="USER/Properties[cEMAILADDRESS]" />
+        <SsdlForeignKeyProperty
+          MaxLength="5"
+          Name="cUSERCATEGORY"
+          Nullable="False"
+          Type="varchar"
+          PropertyName="cUSERCATEGORY" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
+</ServiceApplication>
