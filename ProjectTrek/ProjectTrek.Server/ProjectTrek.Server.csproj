@@ -207,6 +207,9 @@
     <LightSwitchModel Include="DataSources\ApplicationData\ProjectTasks.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\AdditionalCosts.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\CostItems.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\ActiveProjects.lsml">
+      <DependentUpon>Projects.lsml</DependentUpon>
+    </LightSwitchModel>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
