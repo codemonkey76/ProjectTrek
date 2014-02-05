@@ -10,7 +10,7 @@
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Maintain ProjectRoleTypes" />
+        Value="Maintain Role Types" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -26,7 +26,7 @@
             DataType="CollectionView$ProjectRoleType">
             <ContentItem.Attributes>
               <DisplayName
-                Value="List of ProjectRoleTypes" />
+                Value="List of Project Role Types" />
             </ContentItem.Attributes>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
