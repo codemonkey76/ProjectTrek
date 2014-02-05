@@ -8,6 +8,8 @@
     Name="Project">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <Description
+        Value="This is the main entity of the ProjectTrek system. It holds the most important information about a project." />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

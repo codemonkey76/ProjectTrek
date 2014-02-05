@@ -8,6 +8,8 @@
     Name="AdditionalCost">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <Description
+        Value="A record in this table represents a single cost container planned for a project. One of management's most important requests was allowing for additional project costs." />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

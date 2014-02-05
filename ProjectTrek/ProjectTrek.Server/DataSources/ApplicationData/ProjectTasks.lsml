@@ -8,6 +8,8 @@
     Name="ProjectTask">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <Description
+        Value="This represents a single task belonging to a project. A task can contain child tasks. This face is depicted by the self-reference (the line going from ProjectTask back to ProjectTask)" />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod

@@ -8,6 +8,8 @@
     Name="CostItem">
     <EntityType.Attributes>
       <CreatedModifiedPropertiesEnabled />
+      <Description
+        Value="A CostItem record represents a concrete item that adds cost to a project." />
     </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
