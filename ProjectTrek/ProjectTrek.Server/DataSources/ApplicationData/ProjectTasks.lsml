@@ -67,7 +67,11 @@
         Name="ParentTask"
         Association="ProjectTask_ProjectTask"
         FromEnd="ProjectTask1"
-        ToEnd="ProjectTask2" />
+        ToEnd="ProjectTask2">
+        <NavigationProperty.Attributes>
+          <Hidden />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
       <NavigationProperty
         Name="ChildTasks"
         Association="ProjectTask_ProjectTask"

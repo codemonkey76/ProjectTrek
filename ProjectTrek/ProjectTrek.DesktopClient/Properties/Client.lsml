@@ -48,7 +48,8 @@
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
-      Name="Tasks">
+      Name="Tasks"
+      DefaultItem="!module/NavigationItems[Tasks]/Children[ListProjects]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Tasks" />
