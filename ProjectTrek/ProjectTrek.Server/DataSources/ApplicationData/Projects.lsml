@@ -148,6 +148,23 @@
           <NotSearchable />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <VirtualNavigationProperty
+        Name="Customer"
+        FromEnd="Project"
+        ToEnd="Customer"
+        VirtualAssociation="Project_Customer" />
+      <EntityProperty
+        Name="Customer_iID"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Required />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <NavigationProperty
+        Name="ProjectRoles"
+        Association="ProjectRole_Project"
+        FromEnd="Project"
+        ToEnd="ProjectRole" />
       <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
@@ -271,6 +288,16 @@
         Name="AdditionalCost"
         EntitySet="AdditionalCosts" />
     </AssociationSet>
+    <AssociationSet
+      Name="ProjectRole_Projects"
+      Association="ProjectRole_Project">
+      <AssociationSetEnd
+        Name="ProjectRole"
+        EntitySet="ProjectRoles" />
+      <AssociationSetEnd
+        Name="Project"
+        EntitySet="Projects" />
+    </AssociationSet>
   </EntityContainer>
   <Association
     Name="ProjectTask_Project">
@@ -335,6 +362,27 @@
         </SsdlAssociationSetEnd>
       </AssociationSetMapping.Attributes>
     </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="ProjectRole_Projects">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="ProjectRole_Projects" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ProjectRole_Projects]/Members[ProjectRole]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ProjectRole_Project" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ProjectRole_Projects]/Members[Project]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
   </DataService>
   <Association
     Name="Project_AdditionalCost">
@@ -351,5 +399,21 @@
       Name="AdditionalCost"
       Multiplicity="Many"
       EntityType="AdditionalCost" />
+  </Association>
+  <Association
+    Name="ProjectRole_Project">
+    <AssociationEnd
+      Name="ProjectRole"
+      Multiplicity="Many"
+      EntityType="ProjectRole" />
+    <AssociationEnd
+      Name="Project"
+      Multiplicity="One"
+      EntityType="Project">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
   </Association>
 </ServiceApplication>

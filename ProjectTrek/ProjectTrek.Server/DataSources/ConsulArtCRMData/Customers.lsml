@@ -102,6 +102,11 @@
             Value="2000" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <VirtualNavigationProperty
+        Name="Projects"
+        FromEnd="Customer"
+        ToEnd="Project"
+        VirtualAssociation="Project_Customer" />
     </EntityType.Properties>
   </EntityType>
   <EntityContainer
@@ -270,4 +275,33 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+  <VirtualAssociation
+    Name="Project_Customer">
+    <VirtualAssociationEnd
+      Name="Project"
+      Multiplicity="Many"
+      EntityType="Project" />
+    <VirtualAssociationEnd
+      Name="Customer"
+      Multiplicity="One"
+      EntityType="Customer" />
+  </VirtualAssociation>
+  <VirtualAssociationSet
+    Name="Project_Customer_Set"
+    VirtualAssociation="Project_Customer">
+    <VirtualAssociationSetEnd
+      Name="Project"
+      EntityContainer="ApplicationData"
+      EntitySet="Projects">
+      <VirtualAssociationSetEndProperty
+        EntityProperty="Customer_iID" />
+    </VirtualAssociationSetEnd>
+    <VirtualAssociationSetEnd
+      Name="Customer"
+      EntityContainer="ConsulArtCRMData"
+      EntitySet="Customers">
+      <VirtualAssociationSetEndProperty
+        EntityProperty="iID" />
+    </VirtualAssociationSetEnd>
+  </VirtualAssociationSet>
 </ServiceApplication>

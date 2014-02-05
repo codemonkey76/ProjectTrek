@@ -88,4 +88,46 @@
         Target="ServiceInterface:Customer" />
     </EntityType.Attributes>
   </EntityType>
+  <VirtualAssociation>
+    <VirtualAssociation.Attributes>
+      <Proxy
+        Target="ServiceInterface:Project_Customer" />
+    </VirtualAssociation.Attributes>
+  </VirtualAssociation>
+  <VirtualAssociationSet>
+    <VirtualAssociationSet.Attributes>
+      <Proxy
+        Target="ServiceInterface:Project_Customer_Set" />
+    </VirtualAssociationSet.Attributes>
+  </VirtualAssociationSet>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:ProjectRole" />
+    </EntityType.Attributes>
+  </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ProjectRole_Project" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ProjectRole_ProjectRoleType" />
+    </Association.Attributes>
+  </Association>
+  <VirtualAssociation>
+    <VirtualAssociation.Attributes>
+      <Proxy
+        Target="ServiceInterface:ProjectRole_Employee" />
+    </VirtualAssociation.Attributes>
+  </VirtualAssociation>
+  <VirtualAssociationSet>
+    <VirtualAssociationSet.Attributes>
+      <Proxy
+        Target="ServiceInterface:ProjectRole_Employee_Set" />
+    </VirtualAssociationSet.Attributes>
+  </VirtualAssociationSet>
 </Application>

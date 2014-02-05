@@ -5,7 +5,10 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="ProjectRoleType">
+    Name="ProjectRole">
+    <EntityType.Attributes>
+      <CreatedModifiedPropertiesEnabled />
+    </EntityType.Attributes>
     <EntityType.Methods>
       <EntityMethod
         Name="Delete">
@@ -23,47 +26,70 @@
           <NotSearchable />
         </KeyProperty.Attributes>
       </KeyProperty>
+      <NavigationProperty
+        Name="Project"
+        Association="ProjectRole_Project"
+        FromEnd="ProjectRole"
+        ToEnd="Project" />
+      <NavigationProperty
+        Name="ProjectRoleType"
+        Association="ProjectRole_ProjectRoleType"
+        FromEnd="ProjectRole"
+        ToEnd="ProjectRoleType" />
+      <VirtualNavigationProperty
+        Name="Employee"
+        FromEnd="ProjectRole"
+        ToEnd="Employee"
+        VirtualAssociation="ProjectRole_Employee" />
       <EntityProperty
-        Name="DisplayName"
+        Name="Employee_cACCOUNTID"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
           <MaxLength
-            Value="40" />
-          <IncludeInUniqueIndex />
-          <DisplayName
-            Value="Category" />
+            Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="Description"
-        PropertyType=":String?">
+        Name="CreatedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
         <EntityProperty.Attributes>
-          <MaxLength
-            Value="1000" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Active"
-        PropertyType=":Boolean">
-        <EntityProperty.Attributes>
-          <Required />
+          <Generated />
           <NotSearchable />
-          <SupportedValue
-            DisplayName="Yes"
-            Value="True" />
-          <SupportedValue
-            DisplayName="No"
-            Value="False" />
-          <DisplayName
-            Value="Active?" />
+          <MaxLength
+            Value="255" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <NavigationProperty
-        Name="ProjectRoles"
-        Association="ProjectRole_ProjectRoleType"
-        FromEnd="ProjectRoleType"
-        ToEnd="ProjectRole" />
+      <EntityProperty
+        Name="Created"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="ModifiedBy"
+        IsReadOnly="True"
+        PropertyType=":Person?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+          <MaxLength
+            Value="255" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Modified"
+        IsReadOnly="True"
+        PropertyType=":DateTimeOffset?">
+        <EntityProperty.Attributes>
+          <Generated />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
       <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
@@ -82,14 +108,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="ProjectRoleTypes"
+      Name="ProjectRoles"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="ProjectRoleType" />
+      EntityType="ProjectRole" />
     <QueryOperation
-      Name="ProjectRoleTypes_Single"
-      ReturnType="ProjectRoleType">
+      Name="ProjectRoles_Single"
+      ReturnType="ProjectRole">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -115,7 +141,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="ProjectRoleTypes" />
+            Member="ProjectRoles" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -128,8 +154,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="ProjectRoleTypes_SingleOrDefault"
-      ReturnType="ProjectRoleType">
+      Name="ProjectRoles_SingleOrDefault"
+      ReturnType="ProjectRole">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -155,7 +181,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="ProjectRoleTypes" />
+            Member="ProjectRoles" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -167,58 +193,24 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
-    <AssociationSet
-      Name="ProjectRole_ProjectRoleTypes"
-      Association="ProjectRole_ProjectRoleType">
-      <AssociationSetEnd
-        Name="ProjectRole"
-        EntitySet="ProjectRoles" />
-      <AssociationSetEnd
-        Name="ProjectRoleType"
-        EntitySet="ProjectRoleTypes" />
-    </AssociationSet>
   </EntityContainer>
-  <Association
-    Name="ProjectRole_ProjectRoleType">
-    <AssociationEnd
-      Name="ProjectRole"
-      Multiplicity="Many"
-      EntityType="ProjectRole" />
-    <AssociationEnd
-      Name="ProjectRoleType"
-      Multiplicity="One"
-      EntityType="ProjectRoleType">
-      <AssociationEnd.Attributes>
-        <DeleteRule
-          Action="Restrict" />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-  </Association>
   <DataService
     Name="ApplicationDataMapping">
     <DataService.Attributes>
       <Partial />
     </DataService.Attributes>
-    <AssociationSetMapping
-      AssociationSet="ProjectRole_ProjectRoleTypes">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="ProjectRole_ProjectRoleTypes" />
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[ProjectRole_ProjectRoleTypes]/Members[ProjectRole]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="ProjectRole_ProjectRoleType" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ApplicationData/Members[ProjectRole_ProjectRoleTypes]/Members[ProjectRoleType]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="Id" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
+    <EntitySetMapping
+      EntitySet="ProjectRoles">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="ProjectRole_Project"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="ProjectRole_ProjectRoleType"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
   </DataService>
 </ServiceApplication>

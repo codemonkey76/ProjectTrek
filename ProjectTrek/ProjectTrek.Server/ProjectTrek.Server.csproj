@@ -220,6 +220,7 @@
     <LightSwitchModel Include="DataSources\ConsulArtCRMData\EmployeeCategories.lsml" />
     <LightSwitchModel Include="Properties\DataSources\ConsulArtCRMData.lsml" />
     <LightSwitchModel Include="DataSources\ConsulArtCRMData\Customers.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\ProjectRoles.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

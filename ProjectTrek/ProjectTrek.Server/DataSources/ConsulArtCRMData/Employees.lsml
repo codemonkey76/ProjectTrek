@@ -122,6 +122,11 @@
         Association="EmployeeCategory_Employee"
         FromEnd="Employee"
         ToEnd="EmployeeCategory" />
+      <VirtualNavigationProperty
+        Name="ProjectRoles"
+        FromEnd="Employee"
+        ToEnd="ProjectRole"
+        VirtualAssociation="ProjectRole_Employee" />
     </EntityType.Properties>
   </EntityType>
   <EntityContainer
@@ -300,4 +305,33 @@
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
   </DataService>
+  <VirtualAssociation
+    Name="ProjectRole_Employee">
+    <VirtualAssociationEnd
+      Name="ProjectRole"
+      Multiplicity="Many"
+      EntityType="ProjectRole" />
+    <VirtualAssociationEnd
+      Name="Employee"
+      Multiplicity="One"
+      EntityType="Employee" />
+  </VirtualAssociation>
+  <VirtualAssociationSet
+    Name="ProjectRole_Employee_Set"
+    VirtualAssociation="ProjectRole_Employee">
+    <VirtualAssociationSetEnd
+      Name="ProjectRole"
+      EntityContainer="ApplicationData"
+      EntitySet="ProjectRoles">
+      <VirtualAssociationSetEndProperty
+        EntityProperty="Employee_cACCOUNTID" />
+    </VirtualAssociationSetEnd>
+    <VirtualAssociationSetEnd
+      Name="Employee"
+      EntityContainer="ConsulArtCRMData"
+      EntitySet="Employees">
+      <VirtualAssociationSetEndProperty
+        EntityProperty="cACCOUNTID" />
+    </VirtualAssociationSetEnd>
+  </VirtualAssociationSet>
 </ServiceApplication>
