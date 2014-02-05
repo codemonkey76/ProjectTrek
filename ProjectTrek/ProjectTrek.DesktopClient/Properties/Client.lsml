@@ -45,6 +45,9 @@
     <ApplicationCommand
       Name="ScreenCommandShowProjectsListDetail"
       Target="!module/Methods[ShowProjectsListDetail]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowListProjects"
+      Target="!module/Methods[ShowListProjects]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
@@ -63,6 +66,9 @@
       <ApplicationNavigationLink
         Name="ProjectsListDetail"
         Command="!module/Commands[ScreenCommandShowProjectsListDetail]" />
+      <ApplicationNavigationLink
+        Name="ListProjects"
+        Command="!module/Commands[ScreenCommandShowListProjects]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">

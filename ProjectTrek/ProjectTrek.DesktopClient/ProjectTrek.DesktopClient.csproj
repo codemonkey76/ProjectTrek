@@ -239,6 +239,7 @@
     <LightSwitchModel Include="Screens\EditableTimeCategoriesGrid.lsml" />
     <LightSwitchModel Include="Screens\EditableProjectRoleTypesGrid.lsml" />
     <LightSwitchModel Include="Screens\ProjectsListDetail.lsml" />
+    <LightSwitchModel Include="Screens\ListProjects.lsml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\ApplicationData\" />
