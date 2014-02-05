@@ -22,4 +22,10 @@
         Target="ServiceInterface:ProjectRoleType" />
     </EntityType.Attributes>
   </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:ProjectTask" />
+    </EntityType.Attributes>
+  </EntityType>
 </Application>
