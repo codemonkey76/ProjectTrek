@@ -344,6 +344,300 @@
                       <DisplayName
                         Value="Child Table Tabs" />
                     </ContentItem.Attributes>
+                    <ContentItem
+                      Name="ProjectTasks"
+                      Kind="Collection"
+                      DataType="CollectionView$ProjectTask">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ListProjects/Properties[ProjectTasks]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="ProjectTasksTemplate"
+                        Kind="Details"
+                        DataType="ProjectTask">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                        <ContentItem
+                          Name="Name1"
+                          Kind="Value"
+                          DataType=":String">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectTask/Properties[Name]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Chargeable"
+                          Kind="Value"
+                          DataType=":Boolean">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectTask/Properties[Chargeable]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="EstimatedHours"
+                          Kind="Value"
+                          DataType=":Int32">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectTask/Properties[EstimatedHours]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem>
+                      <ContentItem.CommandItems>
+                        <ContentItem
+                          Name="ProjectTasks_DeleteSelected"
+                          Kind="Command">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ListProjects/Properties[ProjectTasks]" />
+                                <CallExpression
+                                  Target="DeleteSelected" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem.CommandItems>
+                    </ContentItem>
+                    <ContentItem
+                      Name="AdditionalCosts"
+                      Kind="Collection"
+                      DataType="CollectionView$AdditionalCost">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ListProjects/Properties[AdditionalCosts]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="AdditionalCostsTemplate"
+                        Kind="Details"
+                        DataType="AdditionalCost">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                        <ContentItem
+                          Name="Name2"
+                          Kind="Value"
+                          DataType=":String">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="AdditionalCost/Properties[Name]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Description"
+                          Kind="Value"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="AdditionalCost/Properties[Description]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Amount"
+                          Kind="Value"
+                          DataType="Microsoft.LightSwitch.Extensions:Money"
+                          View="Microsoft.LightSwitch.Extensions:MoneyEditorControl">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="AdditionalCost/Properties[Amount]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem>
+                      <ContentItem.CommandItems>
+                        <ContentItem
+                          Name="AdditionalCosts_DeleteSelected"
+                          Kind="Command">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ListProjects/Properties[AdditionalCosts]" />
+                                <CallExpression
+                                  Target="DeleteSelected" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem.CommandItems>
+                    </ContentItem>
+                    <ContentItem
+                      Name="ProjectRoles"
+                      Kind="Collection"
+                      DataType="CollectionView$ProjectRole">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <MemberExpression
+                              Member="ListProjects/Properties[ProjectRoles]" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                      <ContentItem
+                        Name="ProjectRolesTemplate"
+                        Kind="Details"
+                        DataType="ProjectRole">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression />
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                        <ContentItem
+                          Name="ProjectRoleType"
+                          Kind="Details"
+                          DataType="ProjectRoleType">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectRole/Properties[ProjectRoleType]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                          <ContentItem
+                            Name="ProjectRoleType1"
+                            Kind="Details"
+                            DataType="ProjectRoleType">
+                            <ContentItem.DataSource>
+                              <ScreenExpressionTree>
+                                <ChainExpression />
+                              </ScreenExpressionTree>
+                            </ContentItem.DataSource>
+                          </ContentItem>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Employee"
+                          Kind="Details"
+                          DataType="Employee">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectRole/Properties[Employee]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                          <ContentItem
+                            Name="Employee1"
+                            Kind="Details"
+                            DataType="Employee">
+                            <ContentItem.DataSource>
+                              <ScreenExpressionTree>
+                                <ChainExpression />
+                              </ScreenExpressionTree>
+                            </ContentItem.DataSource>
+                          </ContentItem>
+                        </ContentItem>
+                        <ContentItem
+                          Name="CreatedBy"
+                          Kind="Value"
+                          DataType=":Person?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectRole/Properties[CreatedBy]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Created"
+                          Kind="Value"
+                          DataType=":DateTimeOffset?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectRole/Properties[Created]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="ModifiedBy"
+                          Kind="Value"
+                          DataType=":Person?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectRole/Properties[ModifiedBy]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Modified"
+                          Kind="Value"
+                          DataType=":DateTimeOffset?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectRole/Properties[Modified]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem>
+                      <ContentItem.CommandItems>
+                        <ContentItem
+                          Name="ProjectRoles_DeleteSelected"
+                          Kind="Command">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ListProjects/Properties[ProjectRoles]" />
+                                <CallExpression
+                                  Target="DeleteSelected" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem.CommandItems>
+                    </ContentItem>
                   </ContentItem>
                 </ContentItem>
               </ContentItem>
@@ -354,6 +648,16 @@
                   <DisplayName
                     Value="Actions" />
                 </ContentItem.Attributes>
+                <ContentItem.PropertySources>
+                  <ControlPropertySource
+                    Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
+                    <ScreenExpressionTree>
+                      <ConstantExpression
+                        Value="Top"
+                        ResultType=":String" />
+                    </ScreenExpressionTree>
+                  </ControlPropertySource>
+                </ContentItem.PropertySources>
               </ContentItem>
             </ContentItem>
           </ContentItem>
@@ -468,6 +772,102 @@
             Value="To" />
         </ScreenProperty.Attributes>
       </ScreenProperty>
+      <ScreenCollectionProperty
+        Name="ProjectTasks"
+        PageSize="45"
+        PropertyType="CollectionView$ProjectTask">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ProjectTasksQuery"
+            ReturnType="ProjectTask*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="ListProjects/Properties[Projects]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="ProjectTasks" />
+                </ChainExpression>
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="ListProjects/Properties[ProjectTasks]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="AdditionalCosts"
+        PageSize="45"
+        PropertyType="CollectionView$AdditionalCost">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="AdditionalCostsQuery"
+            ReturnType="AdditionalCost*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="ListProjects/Properties[Projects]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="AdditionalCosts" />
+                </ChainExpression>
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="ListProjects/Properties[AdditionalCosts]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
+      <ScreenCollectionProperty
+        Name="ProjectRoles"
+        PageSize="45"
+        PropertyType="CollectionView$ProjectRole">
+        <ScreenCollectionProperty.Query>
+          <ScreenQueryDefinition
+            Name="ProjectRolesQuery"
+            ReturnType="ProjectRole*">
+            <ScreenQueryDefinition.FilterExpression>
+              <QueryFilterExpressionTree />
+            </ScreenQueryDefinition.FilterExpression>
+            <ScreenQueryDefinition.Source>
+              <QuerySourceExpressionTree>
+                <ChainExpression>
+                  <MemberExpression
+                    Member="ListProjects/Properties[Projects]" />
+                  <MemberExpression
+                    Member="SelectedItem" />
+                  <MemberExpression
+                    Member="ProjectRoles" />
+                </ChainExpression>
+              </QuerySourceExpressionTree>
+            </ScreenQueryDefinition.Source>
+          </ScreenQueryDefinition>
+        </ScreenCollectionProperty.Query>
+        <ScreenExpressionTree>
+          <ChainExpression>
+            <CallExpression
+              Target="ListProjects/Properties[ProjectRoles]/Query" />
+          </ChainExpression>
+        </ScreenExpressionTree>
+      </ScreenCollectionProperty>
     </Screen.Properties>
   </Screen>
   <Application.Methods>
