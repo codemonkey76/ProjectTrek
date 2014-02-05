@@ -67,19 +67,19 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:USER" />
+        Target="ServiceInterface:Employee" />
     </EntityType.Attributes>
   </EntityType>
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:USER_CATEGORY" />
+        Target="ServiceInterface:EmployeeCategory" />
     </EntityType.Attributes>
   </EntityType>
   <Association>
     <Association.Attributes>
       <Proxy
-        Target="ServiceInterface:FK_USER_USER_CATEGORY" />
+        Target="ServiceInterface:EmployeeCategory_Employee" />
     </Association.Attributes>
   </Association>
   <EntityContainer>
@@ -91,7 +91,7 @@
   <EntityType>
     <EntityType.Attributes>
       <Proxy
-        Target="ServiceInterface:COMPANY" />
+        Target="ServiceInterface:Customer" />
     </EntityType.Attributes>
   </EntityType>
 </Application>

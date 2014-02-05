@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="USER_CATEGORY">
+    Name="Customer">
     <EntityType.Methods>
       <EntityMethod
         Name="Delete">
@@ -16,108 +16,108 @@
     </EntityType.Methods>
     <EntityType.Properties>
       <KeyProperty
-        Name="cCODE"
-        PropertyType=":String">
+        Name="iID"
+        IsReadOnly="True"
+        PropertyType=":Int32">
         <KeyProperty.Attributes>
+          <Hidden />
           <Required />
-          <MaxLength
-            Value="5" />
-          <AnsiConstraint />
+          <NotSearchable />
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
-        Name="cDISPLAYNAME"
+        Name="Name"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
           <MaxLength
-            Value="50" />
+            Value="40" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="cDESCRIPTION"
+        Name="LongName"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
-            Value="1000" />
+            Value="80" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="mHOURLYFEE"
-        PropertyType=":Decimal">
-        <EntityProperty.Attributes>
-          <Required />
-          <DecimalConstraint
-            Precision="19"
-            Scale="4" />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="cSTATUS"
+        Name="AddressLine1"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
           <MaxLength
-            IsFixedLength="True"
-            Value="1" />
+            Value="60" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="AddressLine2"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="60" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="City"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="40" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="State"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="10" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Country"
+        PropertyType=":String">
+        <EntityProperty.Attributes>
+          <Required />
+          <MaxLength
+            Value="40" />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="Zip"
+        PropertyType=":String?">
+        <EntityProperty.Attributes>
+          <MaxLength
+            Value="10" />
           <AnsiConstraint />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="fFLAGS"
-        PropertyType=":Int32">
+        Name="Comment"
+        PropertyType=":String?">
         <EntityProperty.Attributes>
-          <Required />
-          <NotSearchable />
+          <MaxLength
+            Value="2000" />
         </EntityProperty.Attributes>
       </EntityProperty>
-      <NavigationProperty
-        Name="USERs"
-        Association="FK_USER_USER_CATEGORY"
-        FromEnd="USER_CATEGORY"
-        ToEnd="USER" />
     </EntityType.Properties>
   </EntityType>
-  <Association
-    Name="FK_USER_USER_CATEGORY">
-    <AssociationEnd
-      Name="USER_CATEGORY"
-      Multiplicity="One"
-      EntityType="USER_CATEGORY">
-      <AssociationEnd.Attributes>
-        <DeleteRule />
-      </AssociationEnd.Attributes>
-    </AssociationEnd>
-    <AssociationEnd
-      Name="USER"
-      Multiplicity="Many"
-      EntityType="USER" />
-  </Association>
   <EntityContainer
     Name="ConsulArtCRMData">
     <EntityContainer.Attributes>
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="USER_CATEGORies"
+      Name="Customers"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="USER_CATEGORY" />
-    <AssociationSet
-      Name="FK_USER_USER_CATEGORY"
-      Association="FK_USER_USER_CATEGORY">
-      <AssociationSetEnd
-        Name="USER_CATEGORY"
-        EntitySet="USER_CATEGORies" />
-      <AssociationSetEnd
-        Name="USER"
-        EntitySet="USERs" />
-    </AssociationSet>
+      EntityType="Customer" />
     <QueryOperation
-      Name="USER_CATEGORies_Single"
-      ReturnType="USER_CATEGORY">
+      Name="Customers_Single"
+      ReturnType="Customer">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -130,12 +130,12 @@
             <BinaryExpression.Left>
               <ChainExpression>
                 <MemberExpression
-                  Member="cCODE" />
+                  Member="iID" />
               </ChainExpression>
             </BinaryExpression.Left>
             <BinaryExpression.Right>
               <ParameterExpression
-                Parameter="cCODE" />
+                Parameter="iID" />
             </BinaryExpression.Right>
           </BinaryExpression>
         </QueryFilterExpressionTree>
@@ -143,21 +143,21 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="USER_CATEGORies" />
+            Member="Customers" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
-        Name="cCODE"
-        ParameterType=":String?">
+        Name="iID"
+        ParameterType=":Int32?">
         <QueryOperationParameter.Attributes>
           <Description
-            Value="The value of the 'cCODE' key property of the entity to retrieve." />
+            Value="The value of the 'iID' key property of the entity to retrieve." />
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="USER_CATEGORies_SingleOrDefault"
-      ReturnType="USER_CATEGORY">
+      Name="Customers_SingleOrDefault"
+      ReturnType="Customer">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -170,12 +170,12 @@
             <BinaryExpression.Left>
               <ChainExpression>
                 <MemberExpression
-                  Member="cCODE" />
+                  Member="iID" />
               </ChainExpression>
             </BinaryExpression.Left>
             <BinaryExpression.Right>
               <ParameterExpression
-                Parameter="cCODE" />
+                Parameter="iID" />
             </BinaryExpression.Right>
           </BinaryExpression>
         </QueryFilterExpressionTree>
@@ -183,15 +183,15 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="USER_CATEGORies" />
+            Member="Customers" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
-        Name="cCODE"
-        ParameterType=":String?">
+        Name="iID"
+        ParameterType=":Int32?">
         <QueryOperationParameter.Attributes>
           <Description
-            Value="The value of the 'cCODE' key property of the entity to retrieve." />
+            Value="The value of the 'iID' key property of the entity to retrieve." />
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
@@ -202,67 +202,72 @@
       <Partial />
     </DataService.Attributes>
     <EntitySetMapping
-      EntitySet="USER_CATEGORies">
+      EntitySet="Customers">
       <EntitySetMapping.Attributes>
         <SsdlEntitySet
           Schema="dbo"
-          Table="USER_CATEGORY" />
+          Table="COMPANY" />
         <SsdlProperty
-          MaxLength="5"
-          Name="cCODE"
+          Name="iID"
           Nullable="False"
-          Type="varchar"
-          Property="USER_CATEGORY/Properties[cCODE]" />
+          StoreGeneratedPattern="Identity"
+          Type="int"
+          Property="Customer/Properties[iID]" />
         <SsdlProperty
-          MaxLength="50"
-          Name="cDISPLAYNAME"
+          MaxLength="40"
+          Name="cSHORTNAME"
           Nullable="False"
           Type="nvarchar"
-          Property="USER_CATEGORY/Properties[cDISPLAYNAME]" />
+          Property="Customer/Properties[Name]" />
         <SsdlProperty
-          MaxLength="1000"
-          Name="cDESCRIPTION"
+          MaxLength="80"
+          Name="cLONGNAME"
           Nullable="True"
           Type="nvarchar"
-          Property="USER_CATEGORY/Properties[cDESCRIPTION]" />
+          Property="Customer/Properties[LongName]" />
         <SsdlProperty
-          Name="mHOURLYFEE"
+          MaxLength="60"
+          Name="cADDRESS1"
           Nullable="False"
-          Type="money"
-          Property="USER_CATEGORY/Properties[mHOURLYFEE]" />
+          Type="nvarchar"
+          Property="Customer/Properties[AddressLine1]" />
         <SsdlProperty
-          MaxLength="1"
-          Name="cSTATUS"
-          Nullable="False"
-          Type="char"
-          Property="USER_CATEGORY/Properties[cSTATUS]" />
+          MaxLength="60"
+          Name="cADDRESS2"
+          Nullable="True"
+          Type="nvarchar"
+          Property="Customer/Properties[AddressLine2]" />
         <SsdlProperty
-          Name="fFLAGS"
+          MaxLength="40"
+          Name="cCITY"
           Nullable="False"
-          Type="int"
-          Property="USER_CATEGORY/Properties[fFLAGS]" />
+          Type="nvarchar"
+          Property="Customer/Properties[City]" />
+        <SsdlProperty
+          MaxLength="10"
+          Name="cSTATE"
+          Nullable="True"
+          Type="nvarchar"
+          Property="Customer/Properties[State]" />
+        <SsdlProperty
+          MaxLength="40"
+          Name="cCOUNTRY"
+          Nullable="False"
+          Type="nvarchar"
+          Property="Customer/Properties[Country]" />
+        <SsdlProperty
+          MaxLength="10"
+          Name="cZIP"
+          Nullable="True"
+          Type="varchar"
+          Property="Customer/Properties[Zip]" />
+        <SsdlProperty
+          MaxLength="2000"
+          Name="cCOMMENT"
+          Nullable="True"
+          Type="nvarchar"
+          Property="Customer/Properties[Comment]" />
       </EntitySetMapping.Attributes>
     </EntitySetMapping>
-    <AssociationSetMapping
-      AssociationSet="FK_USER_USER_CATEGORY">
-      <AssociationSetMapping.Attributes>
-        <SsdlAssociationSet
-          Name="FK_USER_USER_CATEGORY" />
-        <SsdlAssociationSetEnd
-          End="ConsulArtCRMData/Members[FK_USER_USER_CATEGORY]/Members[USER_CATEGORY]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="cCODE" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-        <SsdlAssociationSetEnd
-          End="ConsulArtCRMData/Members[FK_USER_USER_CATEGORY]/Members[USER]">
-          <SsdlAssociationSetEnd.Attributes>
-            <SsdlPropertyRef
-              Name="cUSERCATEGORY" />
-          </SsdlAssociationSetEnd.Attributes>
-        </SsdlAssociationSetEnd>
-      </AssociationSetMapping.Attributes>
-    </AssociationSetMapping>
   </DataService>
 </ServiceApplication>

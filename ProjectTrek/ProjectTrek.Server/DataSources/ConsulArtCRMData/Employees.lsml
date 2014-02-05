@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="USER">
+    Name="Employee">
     <EntityType.Methods>
       <EntityMethod
         Name="Delete">
@@ -25,7 +25,7 @@
         </KeyProperty.Attributes>
       </KeyProperty>
       <EntityProperty
-        Name="cLOGINNAME"
+        Name="LoginName"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
@@ -34,7 +34,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="cDOMAINNAME"
+        Name="DomainName"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
@@ -43,7 +43,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="cFIRSTNAME"
+        Name="FirstName"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
@@ -52,7 +52,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="cMIDDLENAME"
+        Name="MiddleName"
         PropertyType=":String?">
         <EntityProperty.Attributes>
           <MaxLength
@@ -60,7 +60,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="cLASTNAME"
+        Name="LastName"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
@@ -69,7 +69,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="dCREATED"
+        Name="Created"
         PropertyType=":DateTime">
         <EntityProperty.Attributes>
           <Required />
@@ -80,7 +80,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="dMODIFIED"
+        Name="Modified"
         PropertyType=":DateTime?">
         <EntityProperty.Attributes>
           <DateTimeConstraint
@@ -90,7 +90,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="fLOCKEDOUT"
+        Name="LockedOut"
         PropertyType=":Int32">
         <EntityProperty.Attributes>
           <Required />
@@ -98,7 +98,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="cFULLLOGINNAME"
+        Name="FullLoginName"
         IsReadOnly="True"
         PropertyType=":String">
         <EntityProperty.Attributes>
@@ -108,7 +108,7 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
-        Name="cEMAILADDRESS"
+        Name="Email"
         PropertyType=":String">
         <EntityProperty.Attributes>
           <Required />
@@ -118,10 +118,10 @@
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
-        Name="USER_CATEGORY"
-        Association="FK_USER_USER_CATEGORY"
-        FromEnd="USER"
-        ToEnd="USER_CATEGORY" />
+        Name="EmployeeCategory"
+        Association="EmployeeCategory_Employee"
+        FromEnd="Employee"
+        ToEnd="EmployeeCategory" />
     </EntityType.Properties>
   </EntityType>
   <EntityContainer
@@ -130,14 +130,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="USERs"
+      Name="Employees"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="USER" />
+      EntityType="Employee" />
     <QueryOperation
-      Name="USERs_Single"
-      ReturnType="USER">
+      Name="Employees_Single"
+      ReturnType="Employee">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -163,7 +163,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="USERs" />
+            Member="Employees" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -176,8 +176,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="USERs_SingleOrDefault"
-      ReturnType="USER">
+      Name="Employees_SingleOrDefault"
+      ReturnType="Employee">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -203,7 +203,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="USERs" />
+            Member="Employees" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -222,7 +222,7 @@
       <Partial />
     </DataService.Attributes>
     <EntitySetMapping
-      EntitySet="USERs">
+      EntitySet="Employees">
       <EntitySetMapping.Attributes>
         <SsdlEntitySet
           Schema="dbo"
@@ -232,65 +232,65 @@
           Name="cACCOUNTID"
           Nullable="False"
           Type="nvarchar"
-          Property="USER/Properties[cACCOUNTID]" />
+          Property="Employee/Properties[cACCOUNTID]" />
         <SsdlProperty
           MaxLength="40"
           Name="cLOGINNAME"
           Nullable="False"
           Type="nvarchar"
-          Property="USER/Properties[cLOGINNAME]" />
+          Property="Employee/Properties[LoginName]" />
         <SsdlProperty
           MaxLength="40"
           Name="cDOMAINNAME"
           Nullable="False"
           Type="nvarchar"
-          Property="USER/Properties[cDOMAINNAME]" />
+          Property="Employee/Properties[DomainName]" />
         <SsdlProperty
           MaxLength="40"
           Name="cFIRSTNAME"
           Nullable="False"
           Type="nvarchar"
-          Property="USER/Properties[cFIRSTNAME]" />
+          Property="Employee/Properties[FirstName]" />
         <SsdlProperty
           MaxLength="10"
           Name="cMIDDLENAME"
           Nullable="True"
           Type="nvarchar"
-          Property="USER/Properties[cMIDDLENAME]" />
+          Property="Employee/Properties[MiddleName]" />
         <SsdlProperty
           MaxLength="40"
           Name="cLASTNAME"
           Nullable="False"
           Type="nvarchar"
-          Property="USER/Properties[cLASTNAME]" />
+          Property="Employee/Properties[LastName]" />
         <SsdlProperty
           Name="dCREATED"
           Nullable="False"
           Type="datetime"
-          Property="USER/Properties[dCREATED]" />
+          Property="Employee/Properties[Created]" />
         <SsdlProperty
           Name="dMODIFIED"
           Nullable="True"
           Type="datetime"
-          Property="USER/Properties[dMODIFIED]" />
+          Property="Employee/Properties[Modified]" />
         <SsdlProperty
           Name="fLOCKEDOUT"
           Nullable="False"
           Type="int"
-          Property="USER/Properties[fLOCKEDOUT]" />
+          Property="Employee/Properties[LockedOut]" />
         <SsdlProperty
           MaxLength="81"
           Name="cFULLLOGINNAME"
           Nullable="False"
           StoreGeneratedPattern="Computed"
           Type="nvarchar"
-          Property="USER/Properties[cFULLLOGINNAME]" />
+          Property="Employee/Properties[FullLoginName]" />
         <SsdlProperty
           MaxLength="128"
           Name="cEMAILADDRESS"
           Nullable="False"
           Type="varchar"
-          Property="USER/Properties[cEMAILADDRESS]" />
+          Property="Employee/Properties[Email]" />
         <SsdlForeignKeyProperty
           MaxLength="5"
           Name="cUSERCATEGORY"
