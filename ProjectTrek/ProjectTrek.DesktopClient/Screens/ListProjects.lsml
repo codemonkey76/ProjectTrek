@@ -331,7 +331,8 @@
                   <ContentItem
                     Name="Projects_SelectedItem_Customer"
                     Kind="Details"
-                    DataType="Customer">
+                    DataType="Customer"
+                    View="Microsoft.LightSwitch.RichClient:ModalWindowPickerDetails">
                     <ContentItem.DataSource>
                       <ScreenExpressionTree>
                         <ChainExpression>
@@ -347,12 +348,127 @@
                     <ContentItem
                       Name="Customer2"
                       Kind="Details"
-                      DataType="Customer">
+                      DataType="Customer"
+                      View="Microsoft.LightSwitch.RichClient:RowsLayout">
                       <ContentItem.DataSource>
                         <ScreenExpressionTree>
                           <ChainExpression />
                         </ScreenExpressionTree>
                       </ContentItem.DataSource>
+                      <ContentItem
+                        Name="LongName"
+                        Kind="Value"
+                        DataType=":String?">
+                        <ContentItem.DataSource>
+                          <ScreenExpressionTree>
+                            <ChainExpression>
+                              <MemberExpression
+                                Member="Customer/Properties[LongName]" />
+                            </ChainExpression>
+                          </ScreenExpressionTree>
+                        </ContentItem.DataSource>
+                        <ContentItem.PropertySources>
+                          <ControlPropertySource
+                            Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[FontStyle]">
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <ConstantExpression
+                                  Value="Heading1"
+                                  ResultType=":String" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ControlPropertySource>
+                        </ContentItem.PropertySources>
+                      </ContentItem>
+                      <ContentItem
+                        Name="Group10"
+                        Kind="Group"
+                        View="Microsoft.LightSwitch.Extensions:AddressViewerSmartLayout">
+                        <ContentItem
+                          Name="AddressLine1"
+                          Kind="Value"
+                          Placement="StreetLine1"
+                          DataType=":String">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Customer/Properties[AddressLine1]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="AddressLine2"
+                          Kind="Value"
+                          Placement="StreetLine2"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Customer/Properties[AddressLine2]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="City"
+                          Kind="Value"
+                          Placement="City"
+                          DataType=":String">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Customer/Properties[City]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="State"
+                          Kind="Value"
+                          Placement="State"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Customer/Properties[State]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Zip"
+                          Kind="Value"
+                          Placement="Zipcode"
+                          DataType=":String?">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Customer/Properties[Zip]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                        <ContentItem
+                          Name="Country"
+                          Kind="Value"
+                          Placement="Country"
+                          DataType=":String">
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="Customer/Properties[Country]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                        </ContentItem>
+                      </ContentItem>
                     </ContentItem>
                   </ContentItem>
                   <ContentItem
