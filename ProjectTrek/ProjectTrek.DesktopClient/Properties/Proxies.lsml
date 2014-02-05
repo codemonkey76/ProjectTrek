@@ -28,4 +28,10 @@
         Target="ServiceInterface:ProjectTask" />
     </EntityType.Attributes>
   </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:AdditionalCost" />
+    </EntityType.Attributes>
+  </EntityType>
 </Application>
