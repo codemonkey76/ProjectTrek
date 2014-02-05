@@ -34,4 +34,10 @@
         Target="ServiceInterface:AdditionalCost" />
     </EntityType.Attributes>
   </EntityType>
+  <EntityType>
+    <EntityType.Attributes>
+      <Proxy
+        Target="ServiceInterface:CostItem" />
+    </EntityType.Attributes>
+  </EntityType>
 </Application>
