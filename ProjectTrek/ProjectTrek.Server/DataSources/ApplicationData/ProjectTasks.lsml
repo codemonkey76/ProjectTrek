@@ -46,6 +46,8 @@
           <NotSearchable />
           <Description
             Value="Whether this is a task that can be charged to the customer" />
+          <DisplayName
+            Value="Chargeable?" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -56,6 +58,8 @@
           <NotSearchable />
           <Description
             Value="Estimated number of hours to be spent on this task" />
+          <DisplayName
+            Value="Hours" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty

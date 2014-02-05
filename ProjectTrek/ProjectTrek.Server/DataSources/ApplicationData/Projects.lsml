@@ -68,6 +68,8 @@
           <NotSearchable />
           <Description
             Value="Official date when the project is started" />
+          <DisplayName
+            Value="Start" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -78,6 +80,8 @@
           <NotSearchable />
           <Description
             Value="Planned date when the project is to be completed" />
+          <DisplayName
+            Value="Planned Completion" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -107,13 +111,20 @@
           <SupportedValue
             DisplayName="No"
             Value="False" />
+          <DisplayName
+            Value="Is Closed?" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
         Name="ProjectTasks"
         Association="ProjectTask_Project"
         FromEnd="Project"
-        ToEnd="ProjectTask" />
+        ToEnd="ProjectTask">
+        <NavigationProperty.Attributes>
+          <DisplayName
+            Value="Tasks" />
+        </NavigationProperty.Attributes>
+      </NavigationProperty>
       <NavigationProperty
         Name="AdditionalCosts"
         Association="Project_AdditionalCost"
@@ -125,6 +136,8 @@
         <EntityProperty.Attributes>
           <Computed />
           <NotSearchable />
+          <DisplayName
+            Value="Total Hours Planned" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty

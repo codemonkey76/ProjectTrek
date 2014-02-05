@@ -9,6 +9,8 @@
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
+      <DisplayName
+        Value="List of Projects" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -25,6 +27,10 @@
               Name="DisplayClosed"
               Kind="Value"
               DataType=":Boolean">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Display Closed Projects" />
+              </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
@@ -347,6 +353,10 @@
               Name="ProjectTasks"
               Kind="Collection"
               DataType="CollectionView$ProjectTask">
+              <ContentItem.Attributes>
+                <DisplayName
+                  Value="Tasks" />
+              </ContentItem.Attributes>
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression>
