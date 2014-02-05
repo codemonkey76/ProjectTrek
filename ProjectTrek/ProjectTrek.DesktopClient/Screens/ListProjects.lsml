@@ -328,6 +328,208 @@
                     <DisplayName
                       Value="Details Column" />
                   </ContentItem.Attributes>
+                  <ContentItem
+                    Name="Projects_SelectedItem_Customer"
+                    Kind="Details"
+                    DataType="Customer">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="Customer" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem
+                      Name="Customer2"
+                      Kind="Details"
+                      DataType="Customer">
+                      <ContentItem.DataSource>
+                        <ScreenExpressionTree>
+                          <ChainExpression />
+                        </ScreenExpressionTree>
+                      </ContentItem.DataSource>
+                    </ContentItem>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_Code"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="Code" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_Name"
+                    Kind="Value"
+                    DataType=":String">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="Name" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_Description"
+                    Kind="Value"
+                    DataType=":String?">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="Description" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[HeightSizingMode]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="Lines"
+                              ResultType=":String" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:TextBox/Properties[Lines]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="3"
+                              ResultType=":Int32" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_StartDate"
+                    Kind="Value"
+                    DataType=":Date">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="StartDate" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_PlannedEndDate"
+                    Kind="Value"
+                    DataType=":Date">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="PlannedEndDate" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_PlannedRevenue"
+                    Kind="Value"
+                    DataType="Microsoft.LightSwitch.Extensions:Money">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="PlannedRevenue" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_Closed"
+                    Kind="Value"
+                    DataType=":Boolean">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="Closed" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_TotalTaskHours"
+                    Kind="Value"
+                    DataType=":Int32">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="TotalTaskHours" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="Projects_SelectedItem_TotalAdditionalCosts"
+                    Kind="Value"
+                    DataType="Microsoft.LightSwitch.Extensions:Money">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <MemberExpression
+                            Member="ListProjects/Properties[Projects]" />
+                          <MemberExpression
+                            Member="SelectedItem" />
+                          <MemberExpression
+                            Member="TotalAdditionalCosts" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
                 </ContentItem>
                 <ContentItem
                   Name="Group7"
@@ -655,6 +857,18 @@
                         </ContentItem>
                       </ContentItem.CommandItems>
                     </ContentItem>
+                    <ContentItem.PropertySources>
+                      <ControlPropertySource
+                        Property="Microsoft.LightSwitch.RichClient:TableColumnLayout/Properties[RowSpan]">
+                        <ScreenExpressionTree>
+                          <ChainExpression>
+                            <ConstantExpression
+                              Value="10"
+                              ResultType=":Int32" />
+                          </ChainExpression>
+                        </ScreenExpressionTree>
+                      </ControlPropertySource>
+                    </ContentItem.PropertySources>
                   </ContentItem>
                 </ContentItem>
               </ContentItem>
