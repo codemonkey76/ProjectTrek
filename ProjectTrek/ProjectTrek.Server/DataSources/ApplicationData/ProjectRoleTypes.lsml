@@ -5,7 +5,7 @@
     <Partial />
   </ServiceApplication.Attributes>
   <EntityType
-    Name="TimeCategory">
+    Name="ProjectRoleType">
     <EntityType.Methods>
       <EntityMethod
         Name="Delete">
@@ -49,14 +49,14 @@
         <EntityProperty.Attributes>
           <Required />
           <NotSearchable />
-          <DisplayName
-            Value="Active?" />
           <SupportedValue
             DisplayName="Yes"
             Value="True" />
           <SupportedValue
             DisplayName="No"
             Value="False" />
+          <DisplayName
+            Value="Active?" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -77,14 +77,14 @@
       <Partial />
     </EntityContainer.Attributes>
     <EntitySet
-      Name="TimeCategories"
+      Name="ProjectRoleTypes"
       CanDelete="True"
       CanInsert="True"
       CanUpdate="True"
-      EntityType="TimeCategory" />
+      EntityType="ProjectRoleType" />
     <QueryOperation
-      Name="TimeCategories_Single"
-      ReturnType="TimeCategory">
+      Name="ProjectRoleTypes_Single"
+      ReturnType="ProjectRoleType">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -110,7 +110,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="TimeCategories" />
+            Member="ProjectRoleTypes" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter
@@ -123,8 +123,8 @@
       </QueryOperationParameter>
     </QueryOperation>
     <QueryOperation
-      Name="TimeCategories_SingleOrDefault"
-      ReturnType="TimeCategory">
+      Name="ProjectRoleTypes_SingleOrDefault"
+      ReturnType="ProjectRoleType">
       <QueryOperation.Attributes>
         <Generated />
         <Description
@@ -150,7 +150,7 @@
       <QueryOperation.Source>
         <QuerySourceExpressionTree>
           <MemberExpression
-            Member="TimeCategories" />
+            Member="ProjectRoleTypes" />
         </QuerySourceExpressionTree>
       </QueryOperation.Source>
       <QueryOperationParameter

@@ -5,12 +5,12 @@
     <Partial />
   </Application.Attributes>
   <Screen
-    Name="EditableTimeCategoriesGrid">
+    Name="EditableProjectRoleTypesGrid">
     <Screen.Attributes>
       <SaveChangesTo
         EntityContainer="ApplicationData" />
       <DisplayName
-        Value="Maintain Time Categories" />
+        Value="Maintain ProjectRoleTypes" />
     </Screen.Attributes>
     <Screen.RootContentItem>
       <ContentItem
@@ -23,23 +23,23 @@
           <ContentItem
             Name="grid"
             Kind="Collection"
-            DataType="CollectionView$TimeCategory">
+            DataType="CollectionView$ProjectRoleType">
             <ContentItem.Attributes>
               <DisplayName
-                Value="List of Time Categories" />
+                Value="List of ProjectRoleTypes" />
             </ContentItem.Attributes>
             <ContentItem.DataSource>
               <ScreenExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="EditableTimeCategoriesGrid/Properties[TimeCategories]" />
+                    Member="EditableProjectRoleTypesGrid/Properties[ProjectRoleTypes]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
             <ContentItem
               Name="RowTemplate"
               Kind="Details"
-              DataType="TimeCategory">
+              DataType="ProjectRoleType">
               <ContentItem.DataSource>
                 <ScreenExpressionTree>
                   <ChainExpression />
@@ -53,7 +53,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="TimeCategory/Properties[DisplayName]" />
+                        Member="ProjectRoleType/Properties[DisplayName]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -66,7 +66,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="TimeCategory/Properties[Description]" />
+                        Member="ProjectRoleType/Properties[Description]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -101,7 +101,7 @@
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="TimeCategory/Properties[Active]" />
+                        Member="ProjectRoleType/Properties[Active]" />
                     </ChainExpression>
                   </ScreenExpressionTree>
                 </ContentItem.DataSource>
@@ -109,13 +109,13 @@
             </ContentItem>
             <ContentItem.CommandItems>
               <ContentItem
-                Name="TimeCategories_DeleteSelected"
+                Name="ProjectRoleTypes_DeleteSelected"
                 Kind="Command">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
                       <MemberExpression
-                        Member="EditableTimeCategoriesGrid/Properties[TimeCategories]" />
+                        Member="EditableProjectRoleTypesGrid/Properties[ProjectRoleTypes]" />
                       <CallExpression
                         Target="DeleteSelected" />
                     </ChainExpression>
@@ -155,7 +155,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="EditableTimeCategoriesGrid/Methods[Save]" />
+                    Target="EditableProjectRoleTypesGrid/Methods[Save]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -167,7 +167,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <CallExpression
-                    Target="EditableTimeCategoriesGrid/Methods[Refresh]" />
+                    Target="EditableProjectRoleTypesGrid/Methods[Refresh]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -207,20 +207,20 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
-        Name="TimeCategories"
+        Name="ProjectRoleTypes"
         PageSize="45"
-        PropertyType="CollectionView$TimeCategory">
+        PropertyType="CollectionView$ProjectRoleType">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
-            Name="TimeCategoriesQuery"
-            ReturnType="TimeCategory*">
+            Name="ProjectRoleTypesQuery"
+            ReturnType="ProjectRoleType*">
             <ScreenQueryDefinition.FilterExpression>
               <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[TimeCategories]" />
+                  Member="ApplicationData/Members[ProjectRoleTypes]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
           </ScreenQueryDefinition>
@@ -228,7 +228,7 @@
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="EditableTimeCategoriesGrid/Properties[TimeCategories]/Query" />
+              Target="EditableProjectRoleTypesGrid/Properties[ProjectRoleTypes]/Query" />
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
@@ -236,10 +236,10 @@
   </Screen>
   <Application.Methods>
     <ApplicationMethod
-      Name="ShowEditableTimeCategoriesGrid">
+      Name="ShowEditableProjectRoleTypesGrid">
       <ApplicationMethod.Attributes>
         <ShowScreenMethod
-          TargetScreen="EditableTimeCategoriesGrid" />
+          TargetScreen="EditableProjectRoleTypesGrid" />
       </ApplicationMethod.Attributes>
     </ApplicationMethod>
   </Application.Methods>

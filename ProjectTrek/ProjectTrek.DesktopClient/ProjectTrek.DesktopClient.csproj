@@ -237,6 +237,7 @@
     <ClientResource Include="Properties\Config.xml" />
     <LightSwitchModel Include="Properties\Proxies.lsml" />
     <LightSwitchModel Include="Screens\EditableTimeCategoriesGrid.lsml" />
+    <LightSwitchModel Include="Screens\EditableProjectRoleTypesGrid.lsml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\ApplicationData\" />
