@@ -52,6 +52,11 @@
             Value="Money spent for this cost item (in U.S. dollars)" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="AdditionalCost"
+        Association="CostItem_AdditionalCost"
+        FromEnd="CostItem"
+        ToEnd="AdditionalCost" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -196,4 +201,19 @@
       </QueryOperationParameter>
     </QueryOperation>
   </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="CostItems">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="CostItem_AdditionalCost"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+  </DataService>
 </ServiceApplication>

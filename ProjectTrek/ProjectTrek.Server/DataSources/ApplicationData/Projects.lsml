@@ -104,6 +104,16 @@
             Value="Set to True when the project is closed" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="ProjectTasks"
+        Association="ProjectTask_Project"
+        FromEnd="Project"
+        ToEnd="ProjectTask" />
+      <NavigationProperty
+        Name="AdditionalCosts"
+        Association="Project_AdditionalCost"
+        FromEnd="Project"
+        ToEnd="AdditionalCost" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -247,5 +257,105 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="ProjectTask_Projects"
+      Association="ProjectTask_Project">
+      <AssociationSetEnd
+        Name="ProjectTask"
+        EntitySet="ProjectTasks" />
+      <AssociationSetEnd
+        Name="Project"
+        EntitySet="Projects" />
+    </AssociationSet>
+    <AssociationSet
+      Name="Project_AdditionalCosts"
+      Association="Project_AdditionalCost">
+      <AssociationSetEnd
+        Name="Project"
+        EntitySet="Projects" />
+      <AssociationSetEnd
+        Name="AdditionalCost"
+        EntitySet="AdditionalCosts" />
+    </AssociationSet>
   </EntityContainer>
+  <Association
+    Name="ProjectTask_Project">
+    <AssociationEnd
+      Name="ProjectTask"
+      Multiplicity="Many"
+      EntityType="ProjectTask" />
+    <AssociationEnd
+      Name="Project"
+      Multiplicity="One"
+      EntityType="Project">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <AssociationSetMapping
+      AssociationSet="ProjectTask_Projects">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="ProjectTask_Projects" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ProjectTask_Projects]/Members[ProjectTask]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ProjectTask_Project" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ProjectTask_Projects]/Members[Project]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+    <AssociationSetMapping
+      AssociationSet="Project_AdditionalCosts">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="Project_AdditionalCosts" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Project_AdditionalCosts]/Members[Project]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[Project_AdditionalCosts]/Members[AdditionalCost]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Project_AdditionalCost" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="Project_AdditionalCost">
+    <AssociationEnd
+      Name="Project"
+      Multiplicity="One"
+      EntityType="Project">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+    <AssociationEnd
+      Name="AdditionalCost"
+      Multiplicity="Many"
+      EntityType="AdditionalCost" />
+  </Association>
 </ServiceApplication>

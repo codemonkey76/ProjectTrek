@@ -62,6 +62,16 @@
             Value="Money allocated for this cost category (in U.S. dollars)" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="Project"
+        Association="Project_AdditionalCost"
+        FromEnd="AdditionalCost"
+        ToEnd="Project" />
+      <NavigationProperty
+        Name="CostItems"
+        Association="CostItem_AdditionalCost"
+        FromEnd="AdditionalCost"
+        ToEnd="CostItem" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -205,5 +215,67 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="CostItem_AdditionalCosts"
+      Association="CostItem_AdditionalCost">
+      <AssociationSetEnd
+        Name="CostItem"
+        EntitySet="CostItems" />
+      <AssociationSetEnd
+        Name="AdditionalCost"
+        EntitySet="AdditionalCosts" />
+    </AssociationSet>
   </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="AdditionalCosts">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="Project_AdditionalCost"
+          Nullable="False"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="CostItem_AdditionalCosts">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="CostItem_AdditionalCosts" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[CostItem_AdditionalCosts]/Members[CostItem]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="CostItem_AdditionalCost" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[CostItem_AdditionalCosts]/Members[AdditionalCost]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="CostItem_AdditionalCost">
+    <AssociationEnd
+      Name="CostItem"
+      Multiplicity="Many"
+      EntityType="CostItem" />
+    <AssociationEnd
+      Name="AdditionalCost"
+      Multiplicity="One"
+      EntityType="AdditionalCost">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>
