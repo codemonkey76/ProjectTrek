@@ -1026,6 +1026,44 @@
                   <DisplayName
                     Value="Actions" />
                 </ContentItem.Attributes>
+                <ContentItem.CommandItems>
+                  <ContentItem
+                    Name="CreateNewProject"
+                    Kind="Command">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="ListProjects/Methods[CreateNewProject]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="CloseProject"
+                    Kind="Command">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="ListProjects/Methods[CloseProject]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                  <ContentItem
+                    Name="ReopenProject"
+                    Kind="Command">
+                    <ContentItem.DataSource>
+                      <ScreenExpressionTree>
+                        <ChainExpression>
+                          <CallExpression
+                            Target="ListProjects/Methods[ReopenProject]" />
+                        </ChainExpression>
+                      </ScreenExpressionTree>
+                    </ContentItem.DataSource>
+                  </ContentItem>
+                </ContentItem.CommandItems>
                 <ContentItem.PropertySources>
                   <ControlPropertySource
                     Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[VerticalAlignment]">
@@ -1097,6 +1135,12 @@
           <Generated />
         </ScreenMethod.Attributes>
       </ScreenMethod>
+      <ScreenMethod
+        Name="CreateNewProject" />
+      <ScreenMethod
+        Name="CloseProject" />
+      <ScreenMethod
+        Name="ReopenProject" />
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
