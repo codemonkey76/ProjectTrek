@@ -7,7 +7,6 @@
   <EntityType
     Name="AdditionalCost">
     <EntityType.Attributes>
-      <CreatedModifiedPropertiesEnabled />
       <Description
         Value="A record in this table represents a single cost container planned for a project. One of management's most important requests was allowing for additional project costs." />
     </EntityType.Attributes>
@@ -72,46 +71,6 @@
         Association="CostItem_AdditionalCost"
         FromEnd="AdditionalCost"
         ToEnd="CostItem" />
-      <EntityProperty
-        Name="CreatedBy"
-        IsReadOnly="True"
-        PropertyType=":Person?">
-        <EntityProperty.Attributes>
-          <Generated />
-          <NotSearchable />
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Created"
-        IsReadOnly="True"
-        PropertyType=":DateTimeOffset?">
-        <EntityProperty.Attributes>
-          <Generated />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="ModifiedBy"
-        IsReadOnly="True"
-        PropertyType=":Person?">
-        <EntityProperty.Attributes>
-          <Generated />
-          <NotSearchable />
-          <MaxLength
-            Value="255" />
-        </EntityProperty.Attributes>
-      </EntityProperty>
-      <EntityProperty
-        Name="Modified"
-        IsReadOnly="True"
-        PropertyType=":DateTimeOffset?">
-        <EntityProperty.Attributes>
-          <Generated />
-          <NotSearchable />
-        </EntityProperty.Attributes>
-      </EntityProperty>
       <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">

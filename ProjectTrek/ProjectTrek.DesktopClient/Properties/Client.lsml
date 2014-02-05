@@ -42,11 +42,14 @@
     <ApplicationCommand
       Name="ScreenCommandShowEditableProjectRoleTypesGrid"
       Target="!module/Methods[ShowEditableProjectRoleTypesGrid]" />
+    <ApplicationCommand
+      Name="ScreenCommandShowProjectsListDetail"
+      Target="!module/Methods[ShowProjectsListDetail]" />
   </Application.Commands>
   <Application.NavigationItems>
     <ApplicationNavigationGroup
       Name="Tasks"
-      DefaultItem="!module/NavigationItems[Tasks]/Children[EditableTimeCategoriesGrid]">
+      DefaultItem="!module/NavigationItems[Tasks]/Children[ProjectsListDetail]">
       <ApplicationNavigationGroup.Attributes>
         <DisplayName
           Value="Tasks" />
@@ -57,6 +60,9 @@
       <ApplicationNavigationLink
         Name="EditableProjectRoleTypesGrid"
         Command="!module/Commands[ScreenCommandShowEditableProjectRoleTypesGrid]" />
+      <ApplicationNavigationLink
+        Name="ProjectsListDetail"
+        Command="!module/Commands[ScreenCommandShowProjectsListDetail]" />
     </ApplicationNavigationGroup>
     <ApplicationNavigationGroup
       Name="Administration">
