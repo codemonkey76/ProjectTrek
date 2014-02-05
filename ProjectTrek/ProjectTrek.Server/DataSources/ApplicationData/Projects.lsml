@@ -32,9 +32,12 @@
         Name="Code"
         PropertyType=":String">
         <EntityProperty.Attributes>
-          <Computed />
+          <Required />
           <Description
             Value="Project code used in ConsulArt reports" />
+          <MaxLength
+            Value="255" />
+          <IncludeInUniqueIndex />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
