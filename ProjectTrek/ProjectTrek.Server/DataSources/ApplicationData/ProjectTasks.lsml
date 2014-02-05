@@ -59,6 +59,21 @@
             Value="Estimated number of hours to be spent on this task" />
         </EntityProperty.Attributes>
       </EntityProperty>
+      <NavigationProperty
+        Name="Project"
+        Association="ProjectTask_Project"
+        FromEnd="ProjectTask"
+        ToEnd="Project" />
+      <NavigationProperty
+        Name="ParentTask"
+        Association="ProjectTask_ProjectTask"
+        FromEnd="ProjectTask1"
+        ToEnd="ProjectTask2" />
+      <NavigationProperty
+        Name="ChildTasks"
+        Association="ProjectTask_ProjectTask"
+        FromEnd="ProjectTask2"
+        ToEnd="ProjectTask1" />
       <EntityProperty
         Name="CreatedBy"
         IsReadOnly="True"
@@ -202,5 +217,70 @@
         </QueryOperationParameter.Attributes>
       </QueryOperationParameter>
     </QueryOperation>
+    <AssociationSet
+      Name="ProjectTask_ProjectTasks"
+      Association="ProjectTask_ProjectTask">
+      <AssociationSetEnd
+        Name="ProjectTask1"
+        EntitySet="ProjectTasks" />
+      <AssociationSetEnd
+        Name="ProjectTask2"
+        EntitySet="ProjectTasks" />
+    </AssociationSet>
   </EntityContainer>
+  <DataService
+    Name="ApplicationDataMapping">
+    <DataService.Attributes>
+      <Partial />
+    </DataService.Attributes>
+    <EntitySetMapping
+      EntitySet="ProjectTasks">
+      <EntitySetMapping.Attributes>
+        <SsdlForeignKeyProperty
+          Name="ProjectTask_Project"
+          Nullable="False"
+          Type="int" />
+        <SsdlForeignKeyProperty
+          Name="ProjectTask_ProjectTask"
+          Nullable="True"
+          Type="int" />
+      </EntitySetMapping.Attributes>
+    </EntitySetMapping>
+    <AssociationSetMapping
+      AssociationSet="ProjectTask_ProjectTasks">
+      <AssociationSetMapping.Attributes>
+        <SsdlAssociationSet
+          Name="ProjectTask_ProjectTasks" />
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ProjectTask_ProjectTasks]/Members[ProjectTask1]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="ProjectTask_ProjectTask" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+        <SsdlAssociationSetEnd
+          End="ApplicationData/Members[ProjectTask_ProjectTasks]/Members[ProjectTask2]">
+          <SsdlAssociationSetEnd.Attributes>
+            <SsdlPropertyRef
+              Name="Id" />
+          </SsdlAssociationSetEnd.Attributes>
+        </SsdlAssociationSetEnd>
+      </AssociationSetMapping.Attributes>
+    </AssociationSetMapping>
+  </DataService>
+  <Association
+    Name="ProjectTask_ProjectTask">
+    <AssociationEnd
+      Name="ProjectTask1"
+      Multiplicity="Many"
+      EntityType="ProjectTask" />
+    <AssociationEnd
+      Name="ProjectTask2"
+      EntityType="ProjectTask">
+      <AssociationEnd.Attributes>
+        <DeleteRule
+          Action="Restrict" />
+      </AssociationEnd.Attributes>
+    </AssociationEnd>
+  </Association>
 </ServiceApplication>

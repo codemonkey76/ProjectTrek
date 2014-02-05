@@ -40,4 +40,28 @@
         Target="ServiceInterface:CostItem" />
     </EntityType.Attributes>
   </EntityType>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ProjectTask_Project" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:ProjectTask_ProjectTask" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:Project_AdditionalCost" />
+    </Association.Attributes>
+  </Association>
+  <Association>
+    <Association.Attributes>
+      <Proxy
+        Target="ServiceInterface:CostItem_AdditionalCost" />
+    </Association.Attributes>
+  </Association>
 </Application>
