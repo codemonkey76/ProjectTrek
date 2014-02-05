@@ -347,7 +347,8 @@
                     <ContentItem
                       Name="ProjectTasks"
                       Kind="Collection"
-                      DataType="CollectionView$ProjectTask">
+                      DataType="CollectionView$ProjectTask"
+                      View="Microsoft.LightSwitch.RichClient:DataGrid">
                       <ContentItem.DataSource>
                         <ScreenExpressionTree>
                           <ChainExpression>
@@ -359,7 +360,8 @@
                       <ContentItem
                         Name="ProjectTasksTemplate"
                         Kind="Details"
-                        DataType="ProjectTask">
+                        DataType="ProjectTask"
+                        View="Microsoft.LightSwitch.RichClient:PictureAndText">
                         <ContentItem.DataSource>
                           <ScreenExpressionTree>
                             <ChainExpression />
@@ -368,6 +370,7 @@
                         <ContentItem
                           Name="Name1"
                           Kind="Value"
+                          Placement="Title"
                           DataType=":String">
                           <ContentItem.DataSource>
                             <ScreenExpressionTree>
@@ -381,6 +384,7 @@
                         <ContentItem
                           Name="Chargeable"
                           Kind="Value"
+                          Placement="Description"
                           DataType=":Boolean">
                           <ContentItem.DataSource>
                             <ScreenExpressionTree>
@@ -394,6 +398,7 @@
                         <ContentItem
                           Name="EstimatedHours"
                           Kind="Value"
+                          Placement="Subtitle"
                           DataType=":Int32">
                           <ContentItem.DataSource>
                             <ScreenExpressionTree>
@@ -404,6 +409,18 @@
                             </ScreenExpressionTree>
                           </ContentItem.DataSource>
                         </ContentItem>
+                        <ContentItem.PropertySources>
+                          <ControlPropertySource
+                            Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[ShowAsLink]">
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <ConstantExpression
+                                  Value="True"
+                                  ResultType=":Boolean" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ControlPropertySource>
+                        </ContentItem.PropertySources>
                       </ContentItem>
                       <ContentItem.CommandItems>
                         <ContentItem
