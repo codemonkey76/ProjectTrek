@@ -120,6 +120,22 @@
         FromEnd="Project"
         ToEnd="AdditionalCost" />
       <EntityProperty
+        Name="TotalTaskHours"
+        PropertyType=":Int32">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
+        Name="TotalAdditionalCosts"
+        PropertyType="Microsoft.LightSwitch.Extensions:Money">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
+      <EntityProperty
         Name="RowVersion"
         PropertyType=":RowVersion">
         <EntityProperty.Attributes>
