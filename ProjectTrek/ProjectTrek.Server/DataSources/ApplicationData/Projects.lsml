@@ -101,6 +101,12 @@
           <NotSearchable />
           <Description
             Value="Set to True when the project is closed" />
+          <SupportedValue
+            DisplayName="Yes"
+            Value="True" />
+          <SupportedValue
+            DisplayName="No"
+            Value="False" />
         </EntityProperty.Attributes>
       </EntityProperty>
       <NavigationProperty
