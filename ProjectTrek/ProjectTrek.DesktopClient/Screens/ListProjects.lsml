@@ -727,6 +727,37 @@
                             </ScreenExpressionTree>
                           </ContentItem.DataSource>
                         </ContentItem>
+                        <ContentItem
+                          Name="ParentTask"
+                          Kind="Details"
+                          DataType="ProjectTask">
+                          <ContentItem.ChoicesSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ListProjects/Properties[ProjectTasks]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.ChoicesSource>
+                          <ContentItem.DataSource>
+                            <ScreenExpressionTree>
+                              <ChainExpression>
+                                <MemberExpression
+                                  Member="ProjectTask/Properties[ParentTask]" />
+                              </ChainExpression>
+                            </ScreenExpressionTree>
+                          </ContentItem.DataSource>
+                          <ContentItem
+                            Name="ProjectTask"
+                            Kind="Details"
+                            DataType="ProjectTask">
+                            <ContentItem.DataSource>
+                              <ScreenExpressionTree>
+                                <ChainExpression />
+                              </ScreenExpressionTree>
+                            </ContentItem.DataSource>
+                          </ContentItem>
+                        </ContentItem>
                         <ContentItem.PropertySources>
                           <ControlPropertySource
                             Property="Microsoft.LightSwitch.RichClient:RootControl/Properties[ShowAsLink]">
