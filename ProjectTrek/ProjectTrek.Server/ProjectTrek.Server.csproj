@@ -203,6 +203,7 @@
     <LightSwitchModel Include="Properties\DataSources\ApplicationData.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\TimeCategories.lsml" />
     <LightSwitchModel Include="DataSources\ApplicationData\ProjectRoleTypes.lsml" />
+    <LightSwitchModel Include="DataSources\ApplicationData\Projects.lsml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

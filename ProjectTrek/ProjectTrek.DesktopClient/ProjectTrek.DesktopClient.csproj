@@ -232,6 +232,7 @@
     <LightSwitchModel Include="Properties\Client.lsml">
       <ProjectCritical>true</ProjectCritical>
     </LightSwitchModel>
+    <LightSwitchModel Include="Properties\ApplicationData\Projects.lsml" />
     <None Include="Properties\AppManifest.xml" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
     <ClientResource Include="Properties\Config.xml" />
@@ -239,9 +240,7 @@
     <LightSwitchModel Include="Screens\EditableTimeCategoriesGrid.lsml" />
     <LightSwitchModel Include="Screens\EditableProjectRoleTypesGrid.lsml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Properties\ApplicationData\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <_ClientBuildFile Include="default.htm">
       <SubFolder>
