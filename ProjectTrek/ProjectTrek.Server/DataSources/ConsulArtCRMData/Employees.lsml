@@ -109,7 +109,7 @@
       </EntityProperty>
       <EntityProperty
         Name="Email"
-        PropertyType=":String">
+        PropertyType="Microsoft.LightSwitch.Extensions:EmailAddress">
         <EntityProperty.Attributes>
           <Required />
           <MaxLength

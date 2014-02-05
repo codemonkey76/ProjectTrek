@@ -44,7 +44,7 @@
       </EntityProperty>
       <EntityProperty
         Name="HourlyFee"
-        PropertyType=":Decimal">
+        PropertyType="Microsoft.LightSwitch.Extensions:Money">
         <EntityProperty.Attributes>
           <Required />
           <DecimalConstraint
@@ -62,6 +62,7 @@
             IsFixedLength="True"
             Value="1" />
           <AnsiConstraint />
+          <Hidden />
         </EntityProperty.Attributes>
       </EntityProperty>
       <EntityProperty
@@ -77,6 +78,16 @@
         Association="EmployeeCategory_Employee"
         FromEnd="EmployeeCategory"
         ToEnd="Employee" />
+      <EntityProperty
+        Name="Active"
+        IsReadOnly="True"
+        PropertyType=":Boolean">
+        <EntityProperty.Attributes>
+          <Computed />
+          <NotSearchable />
+          <NotSortable />
+        </EntityProperty.Attributes>
+      </EntityProperty>
     </EntityType.Properties>
   </EntityType>
   <Association

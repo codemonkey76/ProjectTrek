@@ -70,12 +70,6 @@
         Target="ServiceInterface:Employee" />
     </EntityType.Attributes>
   </EntityType>
-  <EntityType>
-    <EntityType.Attributes>
-      <Proxy
-        Target="ServiceInterface:EmployeeCategory" />
-    </EntityType.Attributes>
-  </EntityType>
   <Association>
     <Association.Attributes>
       <Proxy

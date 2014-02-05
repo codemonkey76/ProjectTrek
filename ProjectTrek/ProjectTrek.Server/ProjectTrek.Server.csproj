@@ -194,6 +194,9 @@
     <Compile Include="DataSources\ApplicationData\Project.lsml.cs">
       <DependentUpon>Projects.lsml</DependentUpon>
     </Compile>
+    <Compile Include="DataSources\ConsulArtCRMData\EmployeeCategory.lsml.cs">
+      <DependentUpon>EmployeeCategories.lsml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -229,6 +229,9 @@
     <Compile Include="..\ProjectTrek.Server\DataSources\ApplicationData\Project.lsml.cs">
       <Link>UserCode\Shared\Project.lsml.cs</Link>
     </Compile>
+    <Compile Include="..\ProjectTrek.Server\DataSources\ConsulArtCRMData\EmployeeCategory.lsml.cs">
+      <Link>UserCode\Shared\EmployeeCategory.lsml.cs</Link>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -237,6 +240,7 @@
     </LightSwitchModel>
     <LightSwitchModel Include="Properties\ApplicationData\Projects.lsml" />
     <None Include="Properties\AppManifest.xml" />
+    <LightSwitchModel Include="Properties\ConsulArtCRMData\EmployeeCategories.lsml" />
     <None Include="Properties\OutOfBrowserSettings.xml" />
     <ClientResource Include="Properties\Config.xml" />
     <LightSwitchModel Include="Properties\Proxies.lsml" />
