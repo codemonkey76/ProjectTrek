@@ -19,6 +19,23 @@
           Name="ScreenLayout"
           Kind="Group">
           <ContentItem
+            Name="Group"
+            Kind="Group">
+            <ContentItem
+              Name="DisplayClosed"
+              Kind="Value"
+              DataType=":Boolean">
+              <ContentItem.DataSource>
+                <ScreenExpressionTree>
+                  <ChainExpression>
+                    <MemberExpression
+                      Member="ListProjects/Properties[DisplayClosed]" />
+                  </ChainExpression>
+                </ScreenExpressionTree>
+              </ContentItem.DataSource>
+            </ContentItem>
+          </ContentItem>
+          <ContentItem
             Name="grid"
             Kind="Collection"
             DataType="CollectionView$Project">
@@ -26,7 +43,7 @@
               <ScreenExpressionTree>
                 <ChainExpression>
                   <MemberExpression
-                    Member="ListProjects/Properties[Projects]" />
+                    Member="ListProjects/Properties[ActiveProjects]" />
                 </ChainExpression>
               </ScreenExpressionTree>
             </ContentItem.DataSource>
@@ -78,6 +95,19 @@
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
+                Name="Description"
+                Kind="Value"
+                DataType=":String?">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Project/Properties[Description]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
                 Name="StartDate"
                 Kind="Value"
                 DataType=":Date">
@@ -104,10 +134,22 @@
                 </ContentItem.DataSource>
               </ContentItem>
               <ContentItem
+                Name="PlannedRevenue"
+                Kind="Value"
+                DataType="Microsoft.LightSwitch.Extensions:Money">
+                <ContentItem.DataSource>
+                  <ScreenExpressionTree>
+                    <ChainExpression>
+                      <MemberExpression
+                        Member="Project/Properties[PlannedRevenue]" />
+                    </ChainExpression>
+                  </ScreenExpressionTree>
+                </ContentItem.DataSource>
+              </ContentItem>
+              <ContentItem
                 Name="Closed"
                 Kind="Value"
-                DataType=":Boolean"
-                View="Microsoft.LightSwitch.RichClient:CheckBox">
+                DataType=":Boolean">
                 <ContentItem.DataSource>
                   <ScreenExpressionTree>
                     <ChainExpression>
@@ -224,55 +266,46 @@
     </Screen.Methods>
     <Screen.Properties>
       <ScreenCollectionProperty
-        Name="Projects"
+        Name="ActiveProjects"
         PageSize="45"
         PropertyType="CollectionView$Project">
         <ScreenCollectionProperty.Query>
           <ScreenQueryDefinition
-            Name="ProjectsQuery"
+            Name="ActiveProjectsQuery"
             ReturnType="Project*">
             <ScreenQueryDefinition.FilterExpression>
-              <QueryFilterExpressionTree>
-                <BinaryExpression
-                  NodeType="Equal">
-                  <BinaryExpression.Left>
-                    <ChainExpression>
-                      <MemberExpression
-                        Member="Project/Properties[Closed]" />
-                    </ChainExpression>
-                  </BinaryExpression.Left>
-                  <BinaryExpression.Right>
-                    <ConstantExpression
-                      Value="False"
-                      ResultType=":Boolean" />
-                  </BinaryExpression.Right>
-                </BinaryExpression>
-              </QueryFilterExpressionTree>
+              <QueryFilterExpressionTree />
             </ScreenQueryDefinition.FilterExpression>
             <ScreenQueryDefinition.Source>
               <QuerySourceExpressionTree>
                 <MemberExpression
-                  Member="ApplicationData/Members[Projects]" />
+                  Member="ApplicationData/Members[ActiveProjects]" />
               </QuerySourceExpressionTree>
             </ScreenQueryDefinition.Source>
-            <ScreenQueryDefinition.SortCriteria>
-              <SortCriterion
-                Direction="Descending">
-                <ChainExpression>
-                  <MemberExpression
-                    Member="StartDate" />
-                </ChainExpression>
-              </SortCriterion>
-            </ScreenQueryDefinition.SortCriteria>
           </ScreenQueryDefinition>
         </ScreenCollectionProperty.Query>
         <ScreenExpressionTree>
           <ChainExpression>
             <CallExpression
-              Target="ListProjects/Properties[Projects]/Query" />
+              Target="ListProjects/Properties[ActiveProjects]/Query">
+              <ArgumentExpression
+                Parameter="ShowClosed">
+                <ChainExpression>
+                  <MemberExpression
+                    Member="ListProjects/Properties[DisplayClosed]" />
+                </ChainExpression>
+              </ArgumentExpression>
+            </CallExpression>
           </ChainExpression>
         </ScreenExpressionTree>
       </ScreenCollectionProperty>
+      <ScreenProperty
+        Name="DisplayClosed"
+        PropertyType=":Boolean">
+        <ScreenProperty.Attributes>
+          <Required />
+        </ScreenProperty.Attributes>
+      </ScreenProperty>
     </Screen.Properties>
   </Screen>
   <Application.Methods>
